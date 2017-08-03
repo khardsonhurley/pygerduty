@@ -23,12 +23,9 @@ class IntegrationAPIError(Error):
 
 
 class Events(object):
-    def __init__(self, service_key, requester=None):
+    def __init__(self, service_key):
         self.service_key = service_key
-        if requester is None:
-            self.requester = Requester()
-        else:
-            self.requester = requester
+        self.requester = requester
 
     def create_event(self, description, event_type,
                      details, incident_key, **kwargs):
